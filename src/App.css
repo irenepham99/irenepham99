@@ -1,5 +1,9 @@
+.timeline {
+  color: "blue";
+}
+
 .App {
-  text-align: center;
+  background-color: "grey";
 }
 
 .App-logo {
