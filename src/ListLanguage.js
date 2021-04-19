@@ -1,9 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
-import CircularProgress from "@material-ui/core/CircularProgress";
 import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
 const ListLanguage = () => {
@@ -22,7 +19,7 @@ const ListLanguage = () => {
   ];
   return (
     <div>
-      <Typography variant="h6" style={{ padding: "10px" }} gutterbottom>
+      <Typography variant="h5" style={{ padding: "10px" }} gutterbottom>
         Languages and Frameworks
       </Typography>
       <Grid container justify="center" spacing={4}>

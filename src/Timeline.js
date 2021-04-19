@@ -5,8 +5,6 @@ import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import StepContent from "@material-ui/core/StepContent";
-import Button from "@material-ui/core/Button";
-import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import IconButton from "@material-ui/core/IconButton";
@@ -38,7 +36,7 @@ function getSteps() {
   return [
     {
       title: "Bioinformatics Co-op - Seres Therapeutics",
-      date: "Jan 2021 - Present",
+      date: "January 2021 - Present",
     },
     {
       title: "Software Engineering Intern - ServiceNow - Platform UX",
@@ -57,8 +55,12 @@ function getSteps() {
       date: "January 2019 - June 2019",
     },
     {
+      title: "Undergraduate Resesarcher - Bajpayee Lab",
+      date: "May 2018 – December 2018",
+    },
+    {
       title: "Senior Peer Health Educator",
-      date: "January 2019 - June 2019",
+      date: "September 2017 - September 2018",
     },
   ];
 }
@@ -100,6 +102,12 @@ function getStepContent(step) {
        for research purposes •  Debugged RESTful API services built on Java 8, SpringBoot, 
        and PostgresSQL`;
     case 5:
+      return `• Collaborated with researchers to design and run experiments testing Avidin as a charged nanocarrier for sustained release of osteoarthritis drugs
+      • Performed bioluminescent imaging of bovine intervertebral disc tissue using IVIS to measure diffusion
+      • Harvested and maintained bovine nucleus pulposus tissue for experimental use`;
+    case 6:
+      return `• Teach weekly workshops about communication, consent, and contraception to local underprivileged high schoolers in the Boston area
+      • Attend weekly meetings to receive performance feedback, discuss challenges, and receive additional training on relevant social and health issues faced by teens`;
     default:
       return "Unknown step";
   }
@@ -120,10 +128,6 @@ const Timeline = () => {
 
   const handleStepClick = (step) => () => {
     setActiveStep(step);
-  };
-
-  const handleReset = () => {
-    setActiveStep(0);
   };
 
   return (
