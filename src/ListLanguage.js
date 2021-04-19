@@ -22,7 +22,7 @@ const ListLanguage = () => {
   ];
   return (
     <div>
-      <Typography variant="h6" gutterbottom>
+      <Typography variant="h6" style={{ padding: "10px" }} gutterbottom>
         Languages and Frameworks
       </Typography>
       <Grid container justify="center" spacing={4}>
@@ -42,7 +42,7 @@ const LinearProgressLabeled = ({ value, name }) => {
   return (
     <Grid container justify="center" alignItems="center" spacing={0}>
       <Grid item xs={2}>
-        <Typography variant="body2" color="textSecondary">
+        <Typography variant="body2" style={{ color: "#C5C6C7" }}>
           {name}
         </Typography>
       </Grid>
@@ -50,42 +50,9 @@ const LinearProgressLabeled = ({ value, name }) => {
         <LinearProgress variant="determinate" value={value} />
       </Grid>
       <Grid item xs={2}>
-        <Typography variant="body2" color="textSecondary">
+        <Typography variant="body2" style={{ color: "#C5C6C7" }}>
           {`${value}%`}
         </Typography>
-      </Grid>
-    </Grid>
-  );
-};
-
-const Progress = ({ value, name }) => {
-  return (
-    <Grid container justify="center" spacing={0}>
-      <Grid item xs={12}>
-        <Box position="relative" display="inline-flex">
-          <CircularProgress
-            color="primary"
-            variant="determinate"
-            value={value}
-          />
-          <Box
-            top={0}
-            left={0}
-            bottom={0}
-            right={0}
-            position="absolute"
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Typography variant="caption" component="div" color="textSecondary">
-              {`${value}%`}
-            </Typography>
-          </Box>
-        </Box>
-      </Grid>
-      <Grid item xs={12}>
-        <Typography variant="body">{name}</Typography>
       </Grid>
     </Grid>
   );

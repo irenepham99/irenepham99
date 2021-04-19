@@ -26,6 +26,12 @@ const useStyles = makeStyles((theme) => ({
   resetContainer: {
     padding: theme.spacing(3),
   },
+  stepper: {
+    backgroundColor: theme.palette.background.paper,
+  },
+  mainText: {
+    color: theme.palette.primary.contrastText,
+  },
 }));
 
 function getSteps() {
@@ -122,19 +128,33 @@ const Timeline = () => {
 
   return (
     <div className={classes.root}>
-      <Stepper activeStep={activeStep} orientation="vertical">
+      <Stepper
+        activeStep={activeStep}
+        style={{ backgroundColor: "#1F2833" }}
+        orientation="vertical"
+      >
         {steps.map(({ title, date }, index) => (
           <Step key={title}>
             <StepLabel onClick={handleStepClick(index)}>
-              <b>{title}</b>
-              <br />
-              {date}
+              <Typography variant="h6" className={classes.mainText}>
+                <b>{title}</b>
+                <br />
+                <Typography variant="body2" className={classes.mainText}>
+                  {date}
+                </Typography>
+              </Typography>
             </StepLabel>
             <StepContent>
-              <Typography>{getStepContent(index)}</Typography>
+              <Typography variant="body" className={classes.mainText}>
+                {getStepContent(index)}
+              </Typography>
               <div className={classes.actionsContainer}>
                 <div>
-                  <IconButton disabled={activeStep === 0} onClick={handleBack}>
+                  <IconButton
+                    disabled={activeStep === 0}
+                    color="primary"
+                    onClick={handleBack}
+                  >
                     <ArrowUpwardIcon />
                   </IconButton>
                   <IconButton

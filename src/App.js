@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Card from "@material-ui/core/Card";
-import logo from "./NEU_logo.jpg";
+import logo from "./NEU_logo.png";
 import Timeline from "./Timeline";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import { DialogContent, DialogTitle, IconButton } from "@material-ui/core";
@@ -15,12 +15,6 @@ import { useState } from "react";
 import ListLanguage from "./ListLanguage";
 import Projects from "./Projects";
 
-// const useStyles = makeStyles({
-//   root: {
-//     backgroundColor: "rgb(66, 203, 245)",
-//   },
-// });
-
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -28,11 +22,19 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(3),
     textAlign: "center",
-    color: theme.palette.text.secondary,
+    color: theme.palette.primary.light,
+    background: theme.background.paper,
+  },
+  mainText: {
+    color: theme.palette.primary.contrastText,
+  },
+  secondaryColor: {
+    color: theme.palette.primary.main,
   },
 }));
 
 const LinksBar = () => {
+  const classes = useStyles();
   const [open, setOpen] = useState(false);
   const toggleOpen = () => {
     setOpen((prevOpenState) => !prevOpenState);
@@ -42,20 +44,20 @@ const LinksBar = () => {
       <Grid item xs={1}>
         <a href="https://github.com/irenepham99">
           <IconButton>
-            <GitHubIcon />
+            <GitHubIcon className={classes.mainText} />
           </IconButton>
         </a>
       </Grid>
       <Grid item xs={1}>
         <a href="https://www.linkedin.com/in/irenepham99/">
           <IconButton>
-            <LinkedInIcon />
+            <LinkedInIcon className={classes.mainText} />
           </IconButton>
         </a>
       </Grid>
       <Grid item xs={1}>
         <IconButton onClick={toggleOpen}>
-          <MailIcon />
+          <MailIcon className={classes.mainText} />
         </IconButton>
         <Dialog onClose={toggleOpen} open={open}>
           <DialogTitle>Contact Information:</DialogTitle>
@@ -77,31 +79,11 @@ function App() {
       <Grid container spacing={4}>
         <Grid item xs>
           <Paper className={classes.paper}>
+            <Typography variant="h6" className={classes.mainText}>
+              Hi Everyone! I'm
+            </Typography>
             <Typography variant="h1">Irene Pham</Typography>
             <LinksBar />
-          </Paper>
-        </Grid>
-      </Grid>
-      <Grid container spacing={4}>
-        <Grid item xs>
-          <Paper className={classes.paper}>
-            <Typography variant="h3">Experiences</Typography>
-            <Timeline />
-          </Paper>
-        </Grid>
-      </Grid>
-      <Grid container spacing={4}>
-        <Grid item xs={7}>
-          <Paper className={classes.paper}>
-            <Typography variant="h5" gutterbottom>
-              Projects
-            </Typography>
-            <Projects />
-          </Paper>
-        </Grid>
-        <Grid item xs={5}>
-          <Paper className={classes.paper}>
-            <ListLanguage />
           </Paper>
         </Grid>
       </Grid>
@@ -111,7 +93,11 @@ function App() {
             <Typography variant="h4" gutterbottom>
               About Me
             </Typography>
-            <Typography variant="body" gutterbottom>
+            <Typography
+              className={classes.mainText}
+              variant="body"
+              gutterbottom
+            >
               <br />
               Hi! I'm Irene, a graduating senior from Northeastern University
               looking for jobs in software engineering or bioinformatics.
@@ -119,8 +105,8 @@ function App() {
               <br />
               My current goal – simply put – is to learn as much as I can!
               Specifically, I strive to increase my knowledge and practical
-              skill set in software development, web application development,
-              bioinformatics, and genetics and molecular biology.
+              skill set in software development bioinformatics, and genetics and
+              molecular biology.
               <br />
               <br />
               During my free time, I enjoy hiking, baking, swimming and reading!
@@ -132,15 +118,17 @@ function App() {
         </Grid>
         <Grid item xs={3}>
           <Card className={classes.paper}>
-            <Typography variant="h5">Education</Typography>
-            <div>
+            <Typography variant="h5" gutterbottom>
+              Education
+            </Typography>
+            <div style={{ padding: "10px" }}>
               <img
                 src={logo}
                 alt="Logo"
                 style={{ width: "100px", height: "100px" }}
               />
             </div>
-            <Typography variant="body">
+            <Typography className={classes.mainText} variant="body">
               <b>Northeastern University</b>
               <br />
               Bachelors of Science
@@ -150,6 +138,24 @@ function App() {
               3.8 / 4.0
             </Typography>
           </Card>
+        </Grid>
+      </Grid>
+      <Grid container spacing={4}>
+        <Grid item xs={12}>
+          <Paper className={classes.paper}>
+            <Typography variant="h3">Experiences</Typography>
+            <Timeline />
+          </Paper>
+        </Grid>
+      </Grid>
+      <Grid container spacing={4}>
+        <Grid item xs={7}>
+          <Paper className={classes.paper}>
+            <ListLanguage />
+          </Paper>
+        </Grid>
+        <Grid item xs={5}>
+          <Projects />
         </Grid>
       </Grid>
     </div>
