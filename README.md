@@ -1,6 +1,6 @@
 # Irene's Personal Site
 
-This is my personal site. Please see the live version at www.irenepham99.com
+This is my personal site. Please see the live version at https://irenepham99.github.io/personal-site/
 
 ## Running Locally
 
